@@ -1,0 +1,56 @@
+﻿@model ASPMvc.Models.GuestResponse
+
+@{
+    ViewData["Title"] = "Rsvp";
+}
+
+
+
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+    <body>
+
+        <form asp-action="RsvpForm" method="post">
+            <div asp-validation-summary="All"></div>
+            <p>
+                <label asp-for="Name">Имя: </label>
+                <input asp-for="Name"/>
+            </p>
+
+            <p>
+                <label asp-for="Email">Почта: </label>
+                <input asp-for="Email" />
+            </p>
+
+            <p>
+                <label asp-for="Phone">Телефон: </label>
+                <input asp-for="Phone" />
+            </p>
+
+            <p>
+                <label> Вы придете?: </label>
+                <select asp-for="WillAttendant">
+                    <option value="">Выбор</option>
+                    <option value="true">Да</option>
+                    <option value="false">Нет</option>
+                </select>
+            </p>
+
+            <button type="submit"> Отправить </button>
+        </form>
+
+    </body>
+</html>
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<p>
+    <a asp-controller="Home" asp-action="Index"> Home Page </a>
+</p>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GuestResponse>
+
+@{
+    ViewData["Title"] = "Список гостей";
+}
+
+
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+
+    @foreach (GuestResponse guest in Model)
+    {
+        <li> @guest.Name </li>
+    }
+
+</body>
+</html>
+
+<p>
+    <a asp-controller="Home" asp-action="Index"> Home Page </a>
+</p>

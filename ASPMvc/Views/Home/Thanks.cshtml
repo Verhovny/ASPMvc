@@ -1,0 +1,41 @@
+﻿@model ASPMvc.Models.GuestResponse
+
+@{
+    ViewData["Title"] = "Спасибо";
+}
+
+
+
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+
+    <h1> Спасибо, @Model.Name </h1>
+
+    @if(Model.WillAttendant == true)
+    {
+        @: Хорошо, что вы придете!
+    }
+    else
+    {
+        @: Очень ждем в следующий раз!
+    }
+
+    <p>
+         <a asp-action="ListResponses">Список гостей</a>
+    </p>
+
+</body>
+</html>
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<p>
+    <a asp-controller="Home" asp-action="Index"> Home Page </a>
+</p>

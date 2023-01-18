@@ -26,5 +26,15 @@ namespace SportStore.Models
             context.Products.Update(product);
             context.SaveChanges();
         }
+
+        public void Delete(Product product) 
+        {
+            context.Products.Remove(product);
+            context.SaveChanges();
+        }
+
+
+        // Можно реализовать обновление множества продуктов с помощью метода UpdateAll
+
     }
 }

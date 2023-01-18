@@ -10,5 +10,8 @@ namespace SportStore.Interfaces
         Product GetProduct(int key);
 
         void UpdateProduct(Product product);
+
+        void Delete(Product product);
+
     }
 }

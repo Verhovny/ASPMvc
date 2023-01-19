@@ -27,14 +27,22 @@ namespace SportStore.Controllers
 
         public IActionResult UpdateProduct(int key)
         {
-            return View(repository.GetProduct(key));
+            return View(key == 0 ? new Product() : repository.GetProduct(key));
         }
 
 
         [HttpPost]
         public IActionResult UpdateProduct(Product product)
         {
-            repository.UpdateProduct(product);
+            if(product.Id == 0)
+            {
+                repository.AddProduct(product);
+            }
+            else
+            {
+                repository.UpdateProduct(product);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

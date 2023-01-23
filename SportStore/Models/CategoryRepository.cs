@@ -33,8 +33,5 @@ namespace SportStore.Models
             context.SaveChanges();
         }
 
-
-        // Можно реализовать обновление множества продуктов с помощью метода UpdateAll
-
     }
 }

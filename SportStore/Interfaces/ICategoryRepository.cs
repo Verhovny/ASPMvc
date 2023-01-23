@@ -5,6 +5,7 @@ namespace SportStore.Interfaces
     public interface ICategoryRepository
     {
         IEnumerable<Category> Categories { get;  }
+
         void AddCategory(Category category);
 
         Category GetCategory(int key);

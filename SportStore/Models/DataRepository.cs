@@ -1,4 +1,5 @@
-﻿using SportStore.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SportStore.Data;
 using SportStore.Interfaces;
 using System.Runtime.InteropServices;
 
@@ -11,7 +12,9 @@ namespace SportStore.Models
 
         public DataRepository(DataContext ctx) => context = ctx;    
 
-        public IEnumerable<Product> Products => context.Products.ToArray();
+        public IEnumerable<Product> Products => context.Products
+            .Include(p => p.Category)
+            .ToArray();
 
         public void AddProduct(Product product)
         {
@@ -19,11 +22,17 @@ namespace SportStore.Models
             this.context.SaveChanges();
         }
 
-        public Product GetProduct(int key) => context.Products.Find(key);
+        public Product GetProduct(int key) => context.Products
+            .Include(p => p.Category)
+            .First(p => p.Id == key);
 
         public void UpdateProduct(Product product)
         {
-            context.Products.Update(product);
+            Product p = context.Products.Find(product.Id);
+            p.Name = product.Name;
+            p.PurchasePrice = product.PurchasePrice;
+            p.RetailPrice = product.RetailPrice;
+            p.CategoryId = product.CategoryId;
             context.SaveChanges();
         }
 

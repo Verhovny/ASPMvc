@@ -7,9 +7,11 @@ namespace SportStore.Controllers
     public class HomeController : Controller
     {
         private IRepository repository;
-        public HomeController(IRepository repo)
+        private ICategoryRepository categoryRepository;
+        public HomeController(IRepository repo, ICategoryRepository catRepo)
         {
             repository = repo;
+            categoryRepository = catRepo;
         }
 
         public IActionResult Index()
@@ -27,6 +29,7 @@ namespace SportStore.Controllers
 
         public IActionResult UpdateProduct(int key)
         {
+            ViewBag.Categories = categoryRepository.Categories;
             return View(key == 0 ? new Product() : repository.GetProduct(key));
         }
 

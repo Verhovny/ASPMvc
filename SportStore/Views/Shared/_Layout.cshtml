@@ -1,23 +1,45 @@
 ﻿<!Doctype html>
 <html>
+
     <head>
         <meta name="viewport" content="width=device-width"/>
         <title>SportStore</title>
-        
-        
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-
-
-
-
     </head>
 
     <body>
-        <div class="p-2">
-            @RenderBody()
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="col-2">
+
+                    <a asp-controller="Home" asp-action="Index"
+                     class="@GetClassForButton("Home")">
+                     Products
+                    </a>
+
+                    <a asp-controller="Category" asp-action="Index"
+                       class="@GetClassForButton("Category")">
+                        Category
+                    </a>
+
+                </div>
+
+            <div class="col">
+                @RenderBody()
+            </div>
+
+            </div>
         </div>
+
+
     </body>
 
 </html>
+
+@functions {
+
+    string GetClassForButton(string controller)
+    {
+        return "btn btn-block " + (ViewContext.RouteData.Values["controller"] as string == controller ? "btn-primary" : "btn-outline-primary");
+    }
+}

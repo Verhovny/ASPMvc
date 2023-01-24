@@ -21,9 +21,9 @@ namespace SportStore
 
             builder.Services.AddTransient<IRepository, DataRepository>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 
-            
             // Подключение базы данных SQL Server
             string connection = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connection));

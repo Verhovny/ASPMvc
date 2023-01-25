@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportStore.Interfaces;
 using SportStore.Models;
+using SportStore.Models.Pages;
 
 namespace SportStore.Controllers
 {
@@ -14,10 +15,10 @@ namespace SportStore.Controllers
             categoryRepository = catRepo;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(QueryOptions options)
         {
             //System.Console.Clear();
-            return View(repository.Products);
+            return View(repository.GetProducts(options));
         }
 
         [HttpPost]

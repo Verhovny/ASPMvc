@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportStore.Data;
 using SportStore.Interfaces;
+using SportStore.Models.Pages;
 using System.Runtime.InteropServices;
 
 namespace SportStore.Models
@@ -15,6 +16,11 @@ namespace SportStore.Models
         public IEnumerable<Product> Products => context.Products
             .Include(p => p.Category)
             .ToArray();
+
+        public PageList<Product> GetProducts(QueryOptions options)
+        {
+            return new PageList<Product>(context.Products.Include(p => p.Category), options);
+        }
 
         public void AddProduct(Product product)
         {

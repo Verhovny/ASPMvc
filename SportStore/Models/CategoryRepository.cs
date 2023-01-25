@@ -1,5 +1,6 @@
 ﻿using SportStore.Data;
 using SportStore.Interfaces;
+using SportStore.Models.Pages;
 using System.Runtime.InteropServices;
 
 namespace SportStore.Models
@@ -12,6 +13,11 @@ namespace SportStore.Models
         public CategoryRepository(DataContext ctx) => context = ctx;    
 
         public IEnumerable<Category> Categories => context.Categories.ToArray();
+
+        public PageList<Category> GetCategories(QueryOptions options)
+        {
+            return new PageList<Category>(context.Categories, options);
+        }
 
         public void AddCategory(Category Category)
         {

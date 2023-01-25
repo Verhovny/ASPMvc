@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportStore.Interfaces;
 using SportStore.Models;
+using SportStore.Models.Pages;
 using System.Diagnostics.Eventing.Reader;
 
 namespace SportStore.Controllers
@@ -10,9 +11,10 @@ namespace SportStore.Controllers
         private ICategoryRepository repository;
         public CategoryController(ICategoryRepository repo) => repository = repo;
 
-        public IActionResult Index()
+
+        public IActionResult Index(QueryOptions options)
         {
-            return View(repository.Categories);
+            return View(repository.GetCategories(options));
         }
 
         [HttpPost]

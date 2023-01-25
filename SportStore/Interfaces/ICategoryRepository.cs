@@ -1,4 +1,5 @@
 ﻿using SportStore.Models;
+using SportStore.Models.Pages;
 
 namespace SportStore.Interfaces
 {
@@ -9,6 +10,8 @@ namespace SportStore.Interfaces
         void AddCategory(Category category);
 
         Category GetCategory(int key);
+
+        PageList<Category> GetCategories(QueryOptions options);
 
         void UpdateCategory(Category category);
 

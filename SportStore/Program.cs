@@ -3,6 +3,12 @@ using SportStore.Data;
 using SportStore.Interfaces;
 using SportStore.Models;
 
+
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
+using System.Configuration;
+
 namespace SportStore
 {
     public class Program
@@ -28,7 +34,21 @@ namespace SportStore
             string connection = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connection));
 
-            
+            builder.Services.AddDistributedSqlServerCache(options =>
+            {
+                options.ConnectionString = connection;
+                options.SchemaName = "dbo";
+                options.TableName = "SessionData";
+            });
+
+
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = "SportStore.Session";
+                options.IdleTimeout = System.TimeSpan.FromHours(48);
+                options.Cookie.HttpOnly = false;
+            });
+
 
             var app = builder.Build();
             
@@ -53,6 +73,9 @@ namespace SportStore
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+            app.UseSession();
 
             app.Run();
         }

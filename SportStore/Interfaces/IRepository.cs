@@ -6,6 +6,9 @@ namespace SportStore.Interfaces
     public interface IRepository
     {
         IEnumerable<Product> Products { get;  }
+
+        PageList<Product> GetProducts(QueryOptions options, long category = 0);
+
         void AddProduct(Product product);
 
         PageList<Product> GetProducts(QueryOptions options);

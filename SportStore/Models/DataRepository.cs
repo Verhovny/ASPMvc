@@ -17,6 +17,18 @@ namespace SportStore.Models
             .Include(p => p.Category)
             .ToArray();
 
+
+        public PageList<Product> GetProducts(QueryOptions options, long category = 0)
+        {
+            IQueryable<Product> query = context.Products.Include(p => p.Category);
+            if(category !=-0)
+            {
+                query = query.Where(p => p.CategoryId == category);
+            }
+            return new PageList<Product>(query, options);
+        }
+
+
         public PageList<Product> GetProducts(QueryOptions options)
         {
             return new PageList<Product>(context.Products.Include(p => p.Category), options);

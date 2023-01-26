@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportStore.Data;
+using SportStore.Models;
 
 namespace SportStore.Controllers
 {
@@ -17,6 +18,38 @@ namespace SportStore.Controllers
             return View(context.Products
                 .Include(p => p.Category).OrderBy(p => p.Id).Take(20));
         }
+
+        [HttpPost]
+        public IActionResult CreateProductionData()
+        {
+            ClearData();
+            context.Categories.AddRange(new Category[]
+            {
+                new Category
+                {
+                    Name = "Watesports",
+                    Description =  "Make a splash",
+                    Products = new Product[]
+                    {
+                        new Product
+                        {
+                            Name = "Kayak",
+                            Description = "A boat for one person",
+                            PurchasePrice = 200,
+                            RetailPrice = 275
+                        }
+
+                    }
+                }
+
+            });
+
+            context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+                
+            
+        }
+
 
         [HttpPost]
         public IActionResult CreateSeedData(int count)

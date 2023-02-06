@@ -5,7 +5,15 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPMvc", "ASPMvc\ASPMvc.csproj", "{F6B5DBEA-2DFF-4CDF-997E-3526D8B6F4A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore", "SportStore\SportStore.csproj", "{DCDF44C2-6360-464C-8D52-7E85C483FF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportStore", "SportStore\SportStore.csproj", "{DCDF44C2-6360-464C-8D52-7E85C483FF87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspPostgresTest", "AspPostgresTest\AspPostgresTest.csproj", "{48164325-96EF-4583-A6DE-BC7908FF4F8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspMySqlTest", "AspMySqlTest\AspMySqlTest.csproj", "{77639850-F1D8-41C1-914F-4A2BEE4A7A64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspSqlServerTest", "AspSqlServerTest\AspSqlServerTest.csproj", "{4033A297-F7CA-4A2C-AF18-9E391C2A0835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSqLiteTest", "AspSqLiteTest\AspSqLiteTest.csproj", "{57B89256-42B6-435D-A2D4-B8436B30EE67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{DCDF44C2-6360-464C-8D52-7E85C483FF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCDF44C2-6360-464C-8D52-7E85C483FF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDF44C2-6360-464C-8D52-7E85C483FF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48164325-96EF-4583-A6DE-BC7908FF4F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48164325-96EF-4583-A6DE-BC7908FF4F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48164325-96EF-4583-A6DE-BC7908FF4F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48164325-96EF-4583-A6DE-BC7908FF4F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77639850-F1D8-41C1-914F-4A2BEE4A7A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77639850-F1D8-41C1-914F-4A2BEE4A7A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77639850-F1D8-41C1-914F-4A2BEE4A7A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77639850-F1D8-41C1-914F-4A2BEE4A7A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4033A297-F7CA-4A2C-AF18-9E391C2A0835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4033A297-F7CA-4A2C-AF18-9E391C2A0835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4033A297-F7CA-4A2C-AF18-9E391C2A0835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4033A297-F7CA-4A2C-AF18-9E391C2A0835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B89256-42B6-435D-A2D4-B8436B30EE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B89256-42B6-435D-A2D4-B8436B30EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B89256-42B6-435D-A2D4-B8436B30EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B89256-42B6-435D-A2D4-B8436B30EE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

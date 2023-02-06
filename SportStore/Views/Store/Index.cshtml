@@ -42,12 +42,13 @@
                         <div class="col">
                           <div class="cart m-1 p-1 bg-light">
                            <div class="bg-faded p-1">
-                                <h4>
+                                <h2>
                                     @p.Name
-                                    <span class="badge badge-pill badge-primary" style="float:right">
-                                        <small>$@p.RetailPrice</small>
+                                        
+                                        <span style="float:right">
+                                        $ @p.RetailPrice
                                     </span>
-                                </h4>
+                                </h2>
                            </div> 
 
                            <form id="@p.Id" asp-action="AddToCart" asp-controller="Cart" method="post">
@@ -57,7 +58,9 @@
                                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
 
                                <span class="cart-text p-1">
+
                                     @(p.Description ?? "(No Description Available)")
+                                    
                                     <button type="submit"
                                             class="btn btn-success btn-sm pull-right"
                                             style="float:right">

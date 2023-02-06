@@ -1,0 +1,14 @@
+﻿using Microsoft.EntityFrameworkCore;
+using AspSqLiteTest.Models;
+using System.Configuration;
+
+namespace AspSqLiteTest.Data
+{
+    public class DataContext : DbContext
+    {
+        public DataContext(DbContextOptions<DataContext> opts):base(opts) { }
+    
+        public DbSet<Product> Products { get; set; }
+
+    }
+}

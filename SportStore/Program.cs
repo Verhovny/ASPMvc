@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using System.Configuration;
+using Newtonsoft.Json;
 
 namespace SportStore
 {
@@ -28,7 +29,7 @@ namespace SportStore
             builder.Services.AddTransient<IRepository, DataRepository>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<IOrderRepository, OrderRepository>();
-
+            builder.Services.AddTransient<IWebServiceRepository, WebServiceRepository>();
 
             // Подключение базы данных SQL Server
             string connection = builder.Configuration.GetConnectionString("DefaultConnection");

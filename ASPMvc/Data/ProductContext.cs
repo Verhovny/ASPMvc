@@ -14,7 +14,7 @@ namespace ASPMvc.Data
         public ProductContext(DbContextOptions<ProductContext> options)
              : base(options)
         {
-            // Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<Product> Products { get; set; }
